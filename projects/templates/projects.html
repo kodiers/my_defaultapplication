@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load watermark %}
+{% block title %}
+    {{ object.title }}
+{% endblock %}
+{% block content %}
+    <h1>{{ object.name }}</h1>
+    <small><i>Created: {{ object.created_date }}</i></small>
+    <img src="{{ object.image.url }}">
+    {{ object.text|safe }}
+{% endblock %}

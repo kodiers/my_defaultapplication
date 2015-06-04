@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Контакты
+{% endblock %}
+{% block content %}
+    <h3>Наш адрес:</h3>
+    <p>
+        {{ contact.zip }}
+        {{ contact.address }}
+    </p>
+    <h3>Телефон:</h3>
+    {{ contact.phone }}
+    <h3 >Телефон 2:</h3>
+    {{ contact.phone_2 }}
+    {{ contact.map|safe }}
+    <h3>Обратная связь</h3>
+    <form action="." method="post">
+        {% csrf_token %}
+        <label>ИМЯ:</label><br>
+        {{ form.name }}<br>
+        <label>Телефон:</label><br>
+        {{ form.phone }}<br>
+        <label>E-mail:</label><br>
+        {{ form.email }}<br>
+        <label>Сообщение:</label><br>
+        {{ form.message }}
+        <br>
+        <input id="button_submit" type="submit" value="Отправить">
+    </form>
+{% endblock %}

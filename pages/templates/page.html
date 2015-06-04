@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    {{ object.title }}
+{% endblock %}
+{%  block content %}
+    <h1>{{ object.title }}</h1>
+    <small>{{ object.url }}</small>
+    <small><i>Created: {{ object.created_date }}</i></small>
+    <small><i>Modified: {{ object.modified_date }}</i></small>
+    <p style="font-size: smaller">{{ object.category }}</p>
+    {{ object.content|safe }}
+{% endblock %}

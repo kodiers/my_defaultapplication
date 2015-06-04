@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Список отзывов
+{% endblock %}
+{%  block content %}
+    {% for object in object_list %}
+        {% if object.image.url != None %}
+            <img src="{{ object.image.url }}" class="img-responsive">
+        {% endif %}
+        <p>{{ object.name }}</p>
+        <p>{{ object.created_date }}</p>
+        {{ object.text|safe }}
+    {% endfor %}
+{% endblock %}

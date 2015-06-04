@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load watermark %}
+{% block title %}
+    Список проектов
+{% endblock %}
+{% block content %}
+    {% regroup photos by category as photos_by_cat %}
+    {% for category in photos_by_cat %}
+        {{ category.grouper }}
+        {{ category.grouper.date }}
+        {% for photo in category.list %}
+            <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+            <br>
+        {% endfor %}
+        <br>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load main_contacts_tags %}
+{% block title %}
+    Список услуг
+{% endblock %}
+{%  block content %}
+        {% regroup goods by category as goods_by_cat %}
+        {% for cat in goods_by_cat %}
+            <h1>{{ cat.grouper }}</h1>
+            {% for item in cat.list %}
+                <p><a href="{% url 'good' item.pk %}"> {{ item.title }} </a></p>
+            {% endfor %}
+        {% endfor %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Главная страница
+{% endblock %}
+{%  block content %}
+	{% if main_page.image.url != None %}
+        <img src="{{ main_page.image.url }}">
+    {% endif %}
+    <p >{{ main_page.losung }}</p>
+    <p >{{ main_page.image_text }}</p>
+    <h1 >ПРЕИМУЩЕСТВА</h1>
+        {% for advantage in advantages %}
+            {% if advantage.image.url != None %}
+                <img src="{{ advantage.image.url }}">
+            {% endif %}
+            <h2 >{{ advantage.title }}</h2>
+            <div>{{ advantage.text|safe }}</div>
+        {% endfor %}
+    <h1>О КОМПАНИИ</h1>
+	{{ main_page.about_company|safe }}
+{% endblock %}

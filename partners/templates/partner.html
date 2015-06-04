@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Отзыв от {{ object.title }}
+{% endblock %}
+{%  block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                    <h1>{{ object.title }}</h1>
+                    <small>{{ object.description }}</small>
+                    <small><i>Created: {{ object.created_date }}</i></small>
+                    {% if object.image.url != None %}
+                        <img src="{{ object.image.url }}" class="img-responsive">
+                    {% endif %}
+                    {{ object.text|safe }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

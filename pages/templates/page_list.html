@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Список страниц
+{% endblock %}
+{%  block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                {% for object in object_list %}
+                    <h1>{{ object.title }}</h1>
+                    <small>{{ object.url }}</small>
+                    <small><i>Created: {{ object.created_date }}</i></small>
+                    <small><i>Modified: {{ object.modified_date }}</i></small>
+                    <p style="font-size: smaller">{{ object.category }}</p>
+                    {{ object.content|safe }}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

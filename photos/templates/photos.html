@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load watermark %}
+{% block title %}
+    Список фотографий {{ category.title }}
+{% endblock %}
+{% block content %}
+        {{ category.title }}
+        {{ category.description }}
+        {{ category.date }}
+        {% for photo in photos %}
+            <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+            <br>
+        {% endfor %}
+        <br>
+{% endblock %}

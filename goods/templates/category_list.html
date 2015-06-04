@@ -1,0 +1,17 @@
+{% extends 'pages/base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Список услуг
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            {% for object in object_list %}
+                <h1>{{ object.title }}</h1>
+                <small>Date: {{ object.created_date }}</small>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

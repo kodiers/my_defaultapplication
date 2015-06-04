@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Список партнеров
+{% endblock %}
+{%  block content %}
+    {% for object in object_list %}
+        {{ object.title }}
+        {{ object.description }}
+        {% if object.image.url != None %}
+            <img src="{{ object.image.url }}" class="img-responsive">
+        {% endif %}
+    {% endfor %}
+{% endblock %}

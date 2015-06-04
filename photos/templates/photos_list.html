@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load watermark %}
+{% block title %}
+    Список проектов
+{% endblock %}
+{% block content %}
+        {% for photo in photos %}
+            <h2>{{ photo.category.title }}</h2>
+            <p>{{ photo.category.date }}</p>
+            <p>{{ photo.category.description }}</p>
+            <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+            <p><a href="{% url 'photo' photo.category.pk  %}">Показать все</a> </p>
+            <br>
+        {% endfor %}
+{% endblock %}

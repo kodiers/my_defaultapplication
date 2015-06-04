@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load watermark %}
+{% block title %}
+    Список проектов
+{% endblock %}
+{%  block content %}
+    {% for object in object_list %}
+        {{ object.title }}
+        {{ object.created_date }}
+        <img src="{{ object.image.url }}">
+        {{ object.text|safe }}
+    {% endfor %}
+{% endblock %}
